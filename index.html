@@ -13,203 +13,530 @@
     <link rel="canonical" href="https://smilezjjzjj.online/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全社区导航</title>
+    <title>安全社区导航 - 网络安全学习资源聚合平台</title>
+    <meta name="description" content="专业的网络安全社区导航站，汇聚全球优质安全技术社区、学习资源和研究平台">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #2c3e50;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --surface: #ffffff;
+            --surface-hover: #f8fafc;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --surface: rgba(30, 41, 59, 0.8);
+            --surface-hover: rgba(51, 65, 85, 0.8);
+            --glass-bg: rgba(0, 0, 0, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm10 0c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
-        header {
+
+        .header {
             text-align: center;
-            padding: 40px 0;
+            padding: 4rem 0 3rem;
+            position: relative;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
         }
+
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
         .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-        }
-        .search-box {
-            display: flex;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        .search-box input {
-            flex: 1;
-            padding: 12px 20px;
-            border: 2px solid #ddd;
-            border-radius: 30px;
-            font-size: 16px;
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-wrapper {
+            position: relative;
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+
+        .search-wrapper:focus-within {
+            transform: translateY(-2px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            color: var(--text-primary);
             outline: none;
-            transition: all 0.3s;
+            border-radius: 50px;
         }
-        .search-box input:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
-        .sites-container {
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .sites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
+
         .site-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: var(--shadow-md);
         }
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
         .site-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            background: var(--surface-hover);
         }
-        .site-card a {
+
+        .site-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .site-link {
             display: block;
-            padding: 20px;
+            padding: 2rem;
             text-decoration: none;
             color: inherit;
+            height: 100%;
         }
+
         .site-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
         }
+
         .site-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #3498db;
-            border-radius: 8px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
             color: white;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .site-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        .site-desc {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            height: 40px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+            position: relative;
             overflow: hidden;
         }
+
+        .site-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .site-card:hover .site-icon::before {
+            opacity: 1;
+            animation: shimmer 1s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .site-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .site-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
         .site-url {
-            color: #3498db;
+            color: var(--text-muted);
             font-size: 0.85rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: rgba(100, 116, 139, 0.1);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            display: inline-block;
             word-break: break-all;
+            transition: var(--transition);
         }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
+
+        .site-card:hover .site-url {
+            background: rgba(100, 116, 139, 0.15);
+            color: var(--text-secondary);
         }
-        @media (max-width: 768px) {
-            .sites-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            h1 {
-                font-size: 2rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .sites-container {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-            }
-        }
-        .dark-mode {
+
+        .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #2c3e50;
-            color: white;
+            top: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
             z-index: 100;
         }
-        body.dark {
-            background-color: #1a1a1a;
-            color: #f5f5f5;
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
-        body.dark .site-card {
-            background-color: #2c2c2c;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            margin-top: 2rem;
         }
-        body.dark h1 {
-            color: #ecf0f1;
+
+        .footer-text {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
-        body.dark .subtitle, 
-        body.dark .site-desc {
-            color: #bdc3c7;
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-        body.dark .site-name {
-            color: #ecf0f1;
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
         }
-        body.dark .search-box input {
-            background-color: #2c2c2c;
-            border-color: #444;
-            color: #ecf0f1;
+
+        .footer-link:hover {
+            color: white;
         }
-        body.dark .search-box input:focus {
-            border-color: #3498db;
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+        }
+
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 2rem 0;
+            }
+
+            .sites-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .site-link {
+                padding: 1.5rem;
+            }
+
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 48px;
+                height: 48px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .site-icon {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* 加载动画 */
+        .site-card {
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .site-card:nth-child(1) { animation-delay: 0.1s; }
+        .site-card:nth-child(2) { animation-delay: 0.2s; }
+        .site-card:nth-child(3) { animation-delay: 0.3s; }
+        .site-card:nth-child(4) { animation-delay: 0.4s; }
+        .site-card:nth-child(5) { animation-delay: 0.5s; }
+        .site-card:nth-child(6) { animation-delay: 0.6s; }
+        .site-card:nth-child(7) { animation-delay: 0.7s; }
+        .site-card:nth-child(8) { animation-delay: 0.8s; }
+        .site-card:nth-child(9) { animation-delay: 0.9s; }
+        .site-card:nth-child(10) { animation-delay: 1.0s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 暗色主题适配 */
+        [data-theme="dark"] .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        [data-theme="dark"] .search-input {
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .main-title {
+            background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        [data-theme="dark"] .subtitle {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .footer {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .footer-text {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .footer-link {
+            color: var(--text-muted);
+        }
+
+        [data-theme="dark"] .footer-link:hover {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .no-results {
+            color: var(--text-secondary);
         }
     </style>
 </head>
 <body>
-    <button class="dark-mode" id="darkModeToggle">🌓</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+        🌓
+    </button>
     
     <div class="container">
-        <header>
-            <h1>安全社区导航</h1>
-            <p class="subtitle">收集优质安全社区资源，助力网络安全学习</p>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="搜索安全社区...">
+        <header class="header">
+            <h1 class="main-title">安全社区导航</h1>
+            <p class="subtitle">汇聚全球优质网络安全学习资源，助力安全技术研究与交流</p>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="搜索安全社区、工具或资源..."
+                        autocomplete="off"
+                    >
+                </div>
             </div>
         </header>
 
-        <div class="sites-container" id="sitesContainer">
+        <main class="sites-grid" id="sitesContainer">
             <!-- 站点卡片将通过JavaScript动态生成 -->
-        </div>
+        </main>
 
-        <footer>
-            <p>© 2023 安全社区导航 | 专注于网络安全学习资源</p>
+        <footer class="footer">
+            <p class="footer-text">© 2024 安全社区导航 | 专注于网络安全学习资源聚合</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">关于我们</a>
+                <a href="#" class="footer-link">提交资源</a>
+                <a href="#" class="footer-link">意见反馈</a>
+                <a href="#" class="footer-link">隐私政策</a>
+            </div>
         </footer>
     </div>
 
@@ -219,32 +546,32 @@
             {
                 name: "T00ls",
                 url: "https://www.t00ls.com/",
-                desc: "专注网络安全的技术社区，提供安全工具和交流平台"
+                desc: "专注网络安全的技术社区，提供安全工具和交流平台，汇聚众多安全研究者"
             },
             {
                 name: "九零（90Sec Team）",
                 url: "https://forum.90sec.com/",
-                desc: "国内知名安全团队社区，分享前沿安全技术和研究"
+                desc: "国内知名安全团队社区，分享前沿安全技术和研究成果"
             },
             {
                 name: "腾讯玄武实验室",
                 url: "https://xlab.tencent.com/cn/",
-                desc: "腾讯安全研究团队，发布高质量安全研究成果"
+                desc: "腾讯安全研究团队，发布高质量安全研究成果和威胁情报"
             },
             {
                 name: "安全客",
                 url: "https://www.anquanke.com/",
-                desc: "国内领先的综合性网络安全媒体平台"
+                desc: "国内领先的综合性网络安全媒体平台，提供专业安全资讯"
             },
             {
                 name: "吾爱破解",
                 url: "https://www.52pojie.cn/",
-                desc: "致力于软件安全与逆向分析的技术社区"
+                desc: "致力于软件安全与逆向分析的技术社区，学习交流平台"
             },
             {
                 name: "看雪学院",
                 url: "https://www.kanxue.com/",
-                desc: "专注于软件安全、逆向工程的技术社区"
+                desc: "专注于软件安全、逆向工程的权威技术社区和学习平台"
             },
             {
                 name: "FreeBuf",
@@ -259,12 +586,12 @@
             {
                 name: "HackForums",
                 url: "https://hackforums.net/",
-                desc: "国际知名黑客论坛，涵盖多种安全技术讨论"
+                desc: "国际知名黑客论坛，涵盖多种安全技术讨论和资源分享"
             },
             {
                 name: "0x00sec",
                 url: "https://0x00sec.org/",
-                desc: "专注于信息安全和黑客技术的讨论社区"
+                desc: "专注于信息安全和黑客技术的国际讨论社区"
             }
         ];
 
@@ -274,22 +601,29 @@
             container.innerHTML = '';
             
             if (sitesArray.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">没有找到匹配的安全社区</p>';
+                container.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h3>没有找到匹配的安全社区</h3>
+                        <p>请尝试使用不同的关键词搜索</p>
+                    </div>
+                `;
                 return;
             }
             
-            sitesArray.forEach(site => {
+            sitesArray.forEach((site, index) => {
                 const firstLetter = site.name.charAt(0).toUpperCase();
                 
                 const card = document.createElement('div');
                 card.className = 'site-card';
+                card.style.animationDelay = `${index * 0.1}s`;
                 card.innerHTML = `
-                    <a href="${site.url}" target="_blank" rel="noopener noreferrer">
+                    <a href="${site.url}" target="_blank" rel="noopener noreferrer" class="site-link">
                         <div class="site-header">
                             <div class="site-icon">${firstLetter}</div>
-                            <div class="site-name">${site.name}</div>
+                            <h3 class="site-name">${site.name}</h3>
                         </div>
-                        <div class="site-desc">${site.desc}</div>
+                        <p class="site-description">${site.desc}</p>
                         <div class="site-url">${site.url}</div>
                     </a>
                 `;
@@ -302,33 +636,121 @@
 
         // 搜索功能
         const searchInput = document.getElementById('searchInput');
+        let searchTimeout;
+
         searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const filteredSites = sites.filter(site => 
-                site.name.toLowerCase().includes(searchTerm) || 
-                site.desc.toLowerCase().includes(searchTerm) ||
-                site.url.toLowerCase().includes(searchTerm)
-            );
-            renderSites(filteredSites);
+            clearTimeout(searchTimeout);
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            searchTimeout = setTimeout(() => {
+                const filteredSites = sites.filter(site => 
+                    site.name.toLowerCase().includes(searchTerm) || 
+                    site.desc.toLowerCase().includes(searchTerm) ||
+                    site.url.toLowerCase().includes(searchTerm)
+                );
+                renderSites(filteredSites);
+            }, 300);
         });
 
-        // 暗黑模式切换
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        darkModeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark');
-            
-            // 保存用户偏好
-            if (document.body.classList.contains('dark')) {
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌓';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // 初始化主题
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        setTheme(initialTheme);
+
+        // 监听系统主题变化
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
             }
         });
 
-        // 检查用户之前的偏好
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            document.body.classList.add('dark');
+        // 键盘快捷键
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + K 聚焦搜索框
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            // ESC 清空搜索
+            if (e.key === 'Escape' && document.activeElement === searchInput) {
+                searchInput.value = '';
+                renderSites(sites);
+            }
+        });
+
+        // 添加搜索框提示
+        searchInput.addEventListener('focus', function() {
+            this.placeholder = '输入关键词搜索...';
+        });
+
+        searchInput.addEventListener('blur', function() {
+            if (!this.value) {
+                this.placeholder = '搜索安全社区、工具或资源...';
+            }
+        });
+
+        // 平滑滚动到顶部
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
+
+        // 添加返回顶部功能
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                if (!scrollBtn) {
+                    const btn = document.createElement('button');
+                    btn.className = 'scroll-top';
+                    btn.innerHTML = '↑';
+                    btn.style.cssText = `
+                        position: fixed;
+                        bottom: 2rem;
+                        right: 2rem;
+                        width: 48px;
+                        height: 48px;
+                        border: none;
+                        border-radius: 50%;
+                        backdrop-filter: blur(20px);
+                        background: var(--glass-bg);
+                        border: 1px solid var(--glass-border);
+                        color: white;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        box-shadow: var(--shadow-lg);
+                        transition: var(--transition);
+                        z-index: 99;
+                    `;
+                    btn.onclick = scrollToTop;
+                    document.body.appendChild(btn);
+                }
+            } else {
+                const scrollBtn = document.querySelector('.scroll-top');
+                if (scrollBtn) {
+                    scrollBtn.remove();
+                }
+            }
+        });
     </script>
 </body>
 </html>
